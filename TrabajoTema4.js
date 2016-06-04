@@ -21,3 +21,5 @@ db.libros.find({}).sort({ anio:1 }).limit(1)
 db.libros.update({anio:2013},{$set:{prestamo:true}},{multi:true})
 //7. Define el comando para modificar el nombre del autor del libro “Compilers: Principles, Techniques, and Tools” al valor “Alfred”;
 db.libros.update({"titulo":"Compilers: Principles, Techniques, and Tools"},{$set: {"autores": {nombre:"Alfred"}}})
+//8. Define el comando para eliminar todos los documentos publicados en 2011;
+db.libros.remove({anio:2011})
