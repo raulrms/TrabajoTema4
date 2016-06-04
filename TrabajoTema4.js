@@ -9,4 +9,5 @@ db.libros.insert({"titulo":"Algorithms in a Nutshell","autores":[{"nombre":"Geor
 db.libros.insert({"titulo":"Introduction to Algorithms","autores":[{"nombre":"Thomas H.","apellidos":"Cormen"}],"anio":1990,"prestamo":true})
 db.libros.insert({"titulo":"Algorithms Unlocked","autores":[{"nombre":"Thomas H.","apellidos":"Cormen"}],"anio":2013,"prestamo":false})
 db.libros.insert({"titulo":"Compilers: Principles, Techniques, and Tools","autores":[{"nombre":"Alfred V.","apellidos":"Aho"}],"anio":1986,"prestamo":true})
-
+//2. Crea una consulta que muestre la información de todos los documentos en la collection libros;
+db.libros.find({})
