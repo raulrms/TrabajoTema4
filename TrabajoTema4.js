@@ -24,10 +24,9 @@ db.libros.update({"titulo":"Compilers: Principles, Techniques, and Tools"},{$set
 //8. Define el comando para eliminar todos los documentos publicados en 2011;
 db.libros.remove({anio:2011})
 //9. Utiliza el método Map-Reduce para mostrar la cantidad de libros prestados actualmente;
-db.libros.mapReduce(function(){emit("Prestados",this.prestamo);},
+db.libros.mapReduce(function(){emit(this.anio,this.prestamo);},
                     function(key,values) {return Array.sum(values)},
                     {
-                        query:{"prestamo":true},
-                        out:{inline: 1}
+                        out:{inline:1}
                         }
                     )
