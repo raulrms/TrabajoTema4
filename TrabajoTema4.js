@@ -28,6 +28,7 @@ db.libros.mapReduce(function(){emit("Prestados",this.prestamo);},
                     function(key,values) {return Array.sum(values)},
                     {
                         query:{"prestamo":true},
-                        out:"Total Prestados"
+                        //out:"Total Prestados"
+                        out:{inline: 1}
                         }
                     )
