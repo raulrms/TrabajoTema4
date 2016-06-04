@@ -15,4 +15,6 @@ db.libros.find({})
 db.libros.find({prestamo:true},{_id:0,titulo:1}).sort({titulo:1})
 //4. Crea una consulta que muestre todos los libros con algún autor apellidado Cormen y publicados antes del año 2010;
 db.libros.find({$and: [{"autores.apellidos":{$all:["Cormen"]}, anio:{$lt:2010}}]})
+//5. Crea una consulta que muestre el libro más antiguo en la collection libros;
+db.libros.find({}).sort({ anio:1 }).limit(1)
 //
