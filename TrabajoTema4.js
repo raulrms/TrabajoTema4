@@ -17,4 +17,5 @@ db.libros.find({prestamo:true},{_id:0,titulo:1}).sort({titulo:1})
 db.libros.find({$and: [{"autores.apellidos":{$all:["Cormen"]}, anio:{$lt:2010}}]})
 //5. Crea una consulta que muestre el libro más antiguo en la collection libros;
 db.libros.find({}).sort({ anio:1 }).limit(1)
-//
+//6. Define el comando para modificar el estado de préstamo de los libros publicados en 2013 a true;
+db.libros.update({anio:2013},{$set:{prestamo:true}},{multi:true})
