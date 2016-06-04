@@ -27,7 +27,7 @@ db.libros.remove({anio:2011})
 db.libros.mapReduce(function(){emit(this._id,this.prestamo);},
                     function(key,values) {return Array.sum(values)},
                     {
-                        query:{prestamo:true},
+                        query:{"prestamo":true},
                         out:"Total Prestados"
                         }
                     )
