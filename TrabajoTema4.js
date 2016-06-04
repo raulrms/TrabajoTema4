@@ -11,3 +11,5 @@ db.libros.insert({"titulo":"Algorithms Unlocked","autores":[{"nombre":"Thomas H.
 db.libros.insert({"titulo":"Compilers: Principles, Techniques, and Tools","autores":[{"nombre":"Alfred V.","apellidos":"Aho"}],"anio":1986,"prestamo":true})
 //2. Crea una consulta que muestre la información de todos los documentos en la collection libros;
 db.libros.find({})
+//3. Crea una consulta que muestre el título de los libros que están prestados, es decir, su atributo prestamo tiene el valor true. Los títulos deberán listarse en orden alfabético.;
+db.libros.find({prestamo:true},{_id:0,titulo:1})
