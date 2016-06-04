@@ -23,3 +23,11 @@ db.libros.update({anio:2013},{$set:{prestamo:true}},{multi:true})
 db.libros.update({"titulo":"Compilers: Principles, Techniques, and Tools"},{$set: {"autores": {nombre:"Alfred"}}})
 //8. Define el comando para eliminar todos los documentos publicados en 2011;
 db.libros.remove({anio:2011})
+//9. Utiliza el método Map-Reduce para mostrar la cantidad de libros prestados actualmente;
+db.libros.mapReduce(function(){emit(this._id,this.prestamo);},
+                    function(key,values) {return Array.sum(values)},
+                    {
+                        query:{prestamo:true},
+                        out:"Total Prestados"
+                        }
+                    )
