@@ -13,4 +13,5 @@ db.libros.insert({"titulo":"Compilers: Principles, Techniques, and Tools","autor
 db.libros.find({})
 //3. Crea una consulta que muestre el título de los libros que están prestados, es decir, su atributo prestamo tiene el valor true. Los títulos deberán listarse en orden alfabético.;
 db.libros.find({prestamo:true},{_id:0,titulo:1}).sort({titulo:1})
-
+//4. Crea una consulta que muestre todos los libros con algún autor apellidado Cormen y publicados antes del año 2010;
+db.libros.find({"autores.apellidos":{$all:["Cormen"]}})
